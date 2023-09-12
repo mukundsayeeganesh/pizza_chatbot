@@ -1,0 +1,72 @@
+version: "3.1"
+
+stories:
+
+- story: place_order_happy_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_menu
+  - action: utter_menu
+  - intent: order
+  - action: action_confirm_order
+  - intent: confirm
+  - action: utter_confirm
+  
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_menu
+  - action: utter_menu
+  - intent: order
+    entities:
+    - pizza_quantity: '3'
+    - pizza_size: small
+    - pizza_type: Farmers
+  - slot_was_set:
+    - pizza_quantity: '3'
+  - slot_was_set:
+    - pizza_type: Farmers
+  - slot_was_set:
+    - pizza_size: small
+  - action: action_confirm_order
+  - intent: cancel_order
+  - action: utter_reorder
+  - intent: deny
+  - action: utter_visit_later
+  
+# - story: place_order_sad_path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: request_menu
+#   - action: utter_menu
+#   - intent: order
+#   - action: action_confirm_order
+#   - intent: cancel_order
+#   - action: utter_reorder
+#   - intent: deny
+#   - action: utter_visit_later
+
+# - story: place_order_sad_happy_path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: request_menu
+#   - action: utter_menu
+#   - intent: order
+#   - action: action_confirm_order
+#   - intent: cancel_order
+#   - action: utter_reorder
+#   - intent: affirm
+#   - action: utter_menu
+#   - intent: order
+#   - action: action_confirm_order
+#   - intent: affirm
+#   - action: utter_affirm
+
+
+
+
+

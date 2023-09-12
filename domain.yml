@@ -1,0 +1,59 @@
+version: '3.1'
+
+intents:
+- confirm
+- cancel_order
+- deny
+- greet
+- order
+- request_menu
+- start
+
+entities:
+- pizza_size
+- pizza_quantity
+- pizza_type
+
+slots:
+  pizza_quantity:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: pizza_quantity
+  pizza_type:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: pizza_type
+  pizza_size:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: pizza_size
+
+responses:
+  utter_greet:
+  - text: Hi! How can I assist you?
+  utter_menu:
+  - text: We have Margherita and Farmers Pizza available in Small, Medium and Large Sizes. What would you like to order?
+  utter_confirm:
+  - text: Great! The order has been placed and will be delivered soon.
+  utter_reorder:
+  - text: Do you want to place a new order?
+  utter_visit_later:
+  - text: Have a great day! We look forward to having you visit us later.
+
+actions:
+- utter_greet
+- utter_menu
+- utter_confirm
+- action_confirm_order
+- utter_reorder
+- utter_visit_later
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,67 @@
+version: "3.1"
+
+nlu:
+- intent: start
+  examples: |
+    - /start
+    - start
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Hi
+
+- intent: request_menu
+  examples: |
+    - I would like to order pizza
+    - Can you place an order for me
+    - I need to order pizza
+    - Place pizza order
+    - Order pizza
+    - Pizza
+    - order pizza
+    - I want pizza
+
+- intent: order
+  examples: |
+    - I would like to have [3](pizza_quantity) [small](pizza_size) [Margherita](pizza_type) pizzas
+    - Order [2](pizza_quantity) [medium](pizza_size) [Farmers](pizza_type) pizzas
+    - [1](pizza_quantity) [large](pizza_size) [Margherita](pizza_type)
+    - Place an order for [1](pizza_quantity) [large](pizza_size) [Margherita](pizza_type)
+    - Order [3](pizza_quantity) [Small]{"entity": "pizza_size", "value": "small"} [Farmers](pizza_type) Pizza
+    - Order [2](pizza_quantity) [Small]{"entity": "pizza_size", "value": "small"} [Farmers](pizza_type) pizza
+
+- intent: confirm
+  examples: |
+    - I confirm
+    - Yes confirm it
+    - That is correct
+    - It is right
+
+- intent: cancel_order
+  examples: |
+    - cancel the order
+    - sorry I want to cancel the order
+    - cancel
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - No
+    
+- synonym: small
+  examples: |
+    - Small
