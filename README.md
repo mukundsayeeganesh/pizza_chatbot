@@ -1,7 +1,7 @@
 # pizza_chatbot
 Demonstration of Pizza chatbot using rasa  
 
-The chatbot demonstrate the following conversation -  
+The chatbot demonstrates the following conversation -  
 User - Hello  
 Bot - Hello! How can I assist you?  
 User - I would like to place an order for pizza  
